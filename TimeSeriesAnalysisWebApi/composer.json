@@ -1,0 +1,30 @@
+{
+    "name": "jmorenov/timeseries-analysis-api",
+    "description": "Description of project TimeSeriesAnalysisApi.",
+    "authors": [
+        {
+            "name": "jmorenov",
+            "email": "jmorenov28@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "dev-master",
+        "influxdb/influxdb-php": "dev-master",
+        "kachkaev/php-r": "dev-master",
+        "slim/slim": "4.x-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.7"
+    },
+    "autoload": {
+        "files": ["includes/LoadFunctions.php", "includes/LoadControllers.php"],
+        "psr-4": {
+            "TimeSeriesAnalysisWebApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "prs-4": {
+            "TimeSeriesAnalysisWebApi\\Test\\": "tests/"
+        }
+    }
+}

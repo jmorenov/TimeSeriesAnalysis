@@ -1,0 +1,43 @@
+-------------------------------------------------------------
+|                CATÁLOGO DE MÉTODOS                        |
+-------------------------------------------------------------
+
+
+
+ts: Crear series temporales.
+
+
+PLOTS:
+	- plot
+	- monthplot
+	- seasonplot
+	- plot.ets
+	- plot.bats
+	- plot.forecast
+
+FIT MODELS
+	- HoltWinters
+	- Arima
+	- ets
+	- lm
+	- StructTS
+	- tbats
+	
+AUTOMATED FORECASTING
+	- auto.arima
+	- ets  //Comprobar si automático
+
+FORECASTING
+	- forecast
+	- forecast.arima
+	- forecast.bats
+	- forecast.ets
+	- forecast.HoltWinters
+	- forecast.lm
+	- forecast.StructTS
+	- ses
+	- predict
+
+DESCOMPOSICIÓN
+	- stl
+	

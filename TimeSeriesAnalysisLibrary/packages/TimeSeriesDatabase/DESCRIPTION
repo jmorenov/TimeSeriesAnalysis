@@ -1,0 +1,20 @@
+Package: TimeSeriesDatabase
+Type: Package
+Title: Manage TimeSeries connection to the database
+Version: 0.1
+Date: 2017-06-06
+Author: Javier Moreno
+Maintainer: Javier Moreno <javmorenov@gmail.com>
+Description: Some classes to connect to TimeSeries database.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R6 (>= 2.1.0),
+    httr (>= 1.2.1),
+    RLog (>= 0.1),
+    DataUtils (>= 0.1),
+    TimeSeries (>= 0.1)
+Suggests:
+    testthat
+RoxygenNote: 6.0.1

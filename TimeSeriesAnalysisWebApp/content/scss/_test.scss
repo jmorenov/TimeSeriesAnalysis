@@ -1,0 +1,434 @@
+.with-overflow {
+  overflow-y: scroll;
+}
+
+.intro-header {
+  height: 100%; /* Full PAge */
+  padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+  padding-bottom: 50px;
+  color: #f8f8f8;
+  background: url(../images/header.jpg) no-repeat center center;
+  background-size: cover;
+  text-align: center;
+}
+
+.h1_home {
+  font-size: 80px;
+  font-family: 'Arvo', serif;
+  font-weight: 300;
+  letter-spacing: 6px;
+}
+
+.navbar {
+  position: relative;
+  margin-bottom: 0;
+  width: 100%;
+  z-index: 999;
+  border-radius: 0;
+}
+
+.navbar-default {
+  position: relative;
+  width: 100%;
+  z-index: 999;
+  background-color: #ecf0f1;
+}
+
+.navbar-brand {
+  font-family: arvo;
+  letter-spacing: 3px;
+  font-weight: 400 !important;
+  font-size: 25px;
+}
+
+.navbar-fixed {
+  position: fixed;
+}
+
+.navbar-space {
+  height: 60px;
+}
+
+.navbar-menu-item {
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 700;
+}
+
+.navbar-menu-item:hover, .navbar-menu-item:focus {
+  color: skyblue !important;
+}
+
+.navbar-header:hover {
+  color: skyblue !important;
+}
+
+.fade-in {
+  animation: fadein 2s;
+  -moz-animation: fadein 2s; /* Firefox */
+  -webkit-animation: fadein 2s; /* Safari and Chrome */
+  -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@-o-keyframes fadein { /* Opera */
+  from {
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+.first-section {
+  padding-top: 130px;
+  padding-bottom: 110px;
+}
+
+.section-different {
+  background-color: #f8f8f8;
+}
+
+.btn-xlarge {
+  padding: 18px 28px;
+  font-size: 22px;
+  line-height: normal;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.button_down {
+  position: absolute;
+  bottom: 20px;
+}
+
+.analysis-application-container {
+  background-color: #f8f8f8;
+  width: 98%;
+  height: 98%;
+  top: 1%;
+  bottom: 1%;
+  position: relative;
+  right: 1%;
+  left: 1%;
+  text-align: center;
+  color: black;
+}
+
+.btn-navbar {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-top: 3px;
+}
+
+.btn-start-timeseries {
+  width: 100%;
+  height: 80px;
+  font-size: 1.6em;
+  margin-top: 40px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-bottom: 40px;
+}
+
+.logo-header {
+  position: absolute;
+  float: left;
+  -ms-transform: rotate(90deg) scale(0.6,0.6); /* IE 9 */
+  -webkit-transform: rotate(90deg) scale(0.6,0.6); /* Chrome, Safari, Opera */
+  transform: rotate(90deg) scale(0.6,0.6);
+  top: 0px;
+}
+
+.analysis-application-parent-container {
+  height: 100%; /* Full PAge */
+  padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+  padding-bottom: 50px;
+  color: #f8f8f8;
+  background: url(../images/background-analysis-app.png) no-repeat center center;
+  background-size: cover;
+  /*overflow: hidden;*/
+}
+
+.list-timeseries {
+  overflow: auto;
+}
+
+.full-container {
+  height: 100%;
+}
+
+.full-screen-modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.6);
+  transition: 0.5s;
+}
+
+.upload-icon {
+  position: relative;
+  height: 100%;
+}
+
+.upload-icon img {
+  position: relative;
+  cursor: pointer;
+  top: calc(50% - 120px);
+}
+
+.modal-container {
+  position: relative;
+  width: 60%;
+  top: 10%;
+  left: 20%;
+}
+
+.select-time-series {
+  cursor: pointer;
+}
+
+.select-time-series:hover {
+  background-color: skyblue;
+}
+
+#uploadTimeSeriesModal {
+  text-align: initial;
+}
+
+.form-group.required .control-label:after {
+  color: skyblue;
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  font-size: 14px;
+  content: "\f069";
+  margin-left: 8px;
+  top:12px;
+}
+
+.ng-valid[required], .ng-valid.required, .file-valid  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form), .file-invalid  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.upload-time-series-progress {
+  height: 60px;
+}
+
+.upload-time-series-progress-text {
+  font-size: 80px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  text-align: center;
+  color: deepskyblue;
+}
+
+.succesfull-upload {
+  width: 100%;
+}
+
+.succesfull-upload:before {
+  font-size: 15em;
+  /*margin-left: calc(50% - 90px);*/
+  color: skyblue;
+}
+
+.error-upload {
+  width: 100%;
+}
+
+.error-upload:before {
+  font-size: 15em;
+  margin-left: calc(50% - 90px);
+  color: red;
+}
+.analysis-application-parent-container-time-series {
+  overflow: auto;
+}
+.analysis-application-container-time-series {
+  background-color: white;
+  height: auto;
+}
+
+.time-series-title {
+  font-size: 4em;
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.row-with-space {
+  padding-bottom: 20px;
+}
+
+.parameter-name {
+  font-weight: bold;
+}
+
+.time-series-description {
+  font-weight: bold;
+}
+
+.time-series-description-content {
+}
+
+a.time-series-reference-url {
+  color: #337ab7;
+}
+
+.bottom-space {
+  margin-bottom: 30px;
+}
+
+.btn-add-analysis {
+  width: 100%;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 20px;
+  border: 1px solid #2980b9;
+  border-radius: 3px;
+  background-image:
+          repeating-linear-gradient(
+                          -45deg,
+                          #2980b9,
+                          #2980b9 11px,
+                          #eee 10px,
+                          #eee 20px /* determines size */
+          );
+  background-size: 28px 28px;
+  animation: move .5s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 28px 0;
+  }
+}
+
+.analysis-results-table {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-bottom: 20px;
+}
+
+.analysis-result-modal {
+  width: calc(100% - 20px);
+}
+
+.not-border-left-red {
+  border-left: white !important;
+}
+
+.open-modal {
+  color: #337ab7;
+  cursor: pointer;
+}
+
+.user-control {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  cursor: pointer;
+}
+
+.user-control__dropdown-menu {
+  min-width: inherit;
+  position: relative;
+  margin-right: -50px;
+  margin-top: 50px;
+}
+
+.user-control__image-profile {
+  border-radius:50%;
+  position: relative;
+}
+
+.entry-user-modal {
+  color: #333;
+  text-align: center;
+}
+
+.user-control__username {
+  right: 80px;
+  top: 20px;
+}
+
+.profile-field {
+  text-align: left;
+  margin-left: 200px;
+}
+
+.modal-image-header {
+  margin-left: calc(50% - 70px);
+  height: 140px;
+}
+
+.project-images {
+  height: 140px;
+}
+
+.project-title {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.profile-user-image {
+  float:left;
+}
+
+.profile-header {
+  padding: 30px;
+  float: left;
+}
+
+.edit-profile {
+  float: right;
+  padding: 30px;
+  cursor: pointer;
+}
+
+.profile-header-container {
+  width: 100%;
+}
+
+.profile-timeseries-title {
+  padding-top: 230px;
+}

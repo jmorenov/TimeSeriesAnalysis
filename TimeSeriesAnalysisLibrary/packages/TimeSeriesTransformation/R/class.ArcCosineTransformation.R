@@ -1,0 +1,32 @@
+#' ArcCosineTransformation
+#'
+#' Clase que sobreescribe la clase \code{\link{Transformation}} implementando
+#' la transformacion arco coseno
+#'
+#' @docType class
+#' @importFrom R6 R6Class
+#' @export
+#' @format A ArcCosineTransformation Class of type \code{\link{R6Class}}.
+#' @section Warning: Advertencias.
+#' @section Extend: \code{\link{Transformation}}
+#' @section Methods:
+#' \describe{
+#'   \item{\code{example_method(parameter_1 = 3)}}{This method uses \code{parameter_1} to ...}
+#' }
+#' @author Javier Moreno <javmorenov@@gmail.com>
+ArcCosineTransformation <- R6::R6Class("ArcCosineTransformation", inherit = Transformation,
+                                    private = list(),
+                                    public = list(
+                                      initialize = function() {
+                                        super$initialize("ArcCosineTransformation", "Arc Cosine transformation")
+                                      },
+                                      apply = function(data) {
+                                        result <- super$apply(data)
+
+                                        transformationResult <- acos(data$getAllValues())
+                                        newTimeSeriesData <- TimeSeriesData$new(transformationResult)
+                                        result$set(newTimeSeriesData)
+
+                                        result
+                                      }
+                                    ))

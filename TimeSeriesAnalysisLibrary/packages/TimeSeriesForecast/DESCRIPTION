@@ -1,0 +1,26 @@
+Package: TimeSeriesForecast
+Type: Package
+Title: Forecasting TimeSeries
+Version: 0.1
+Date: 2017-05-27
+Author: Javier Moreno
+Maintainer: Javier Moreno <javmorenov@gmail.com>
+Description: A package for forecasting TimeSeries.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R6 (>= 2.1.0),
+    TimeSeries (>= 0.1),
+    RLog (>= 0.1),
+    DataUtils (>= 0.1)
+Suggests:
+    testthat,
+    parallel,
+    forecast,
+    stats
+LinkingTo: Rcpp
+Imports:
+    Rcpp
+SystemRequirements: GNU make
+RoxygenNote: 6.0.1

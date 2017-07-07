@@ -1,0 +1,18 @@
+Package: TimeSeries
+Type: Package
+Title: Functionality to manage time series
+Version: 0.1
+Date: 2017-05-27
+Author: Javier Moreno
+Maintainer: Javier Moreno <javmorenov@gmail.com>
+Description: A package for build TimeSerie objects and manages time series data.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R6 (>= 2.1.0),
+    RLog (>= 0.1),
+    DataUtils (>= 0.1)
+Suggests:
+    testthat
+RoxygenNote: 6.0.1

@@ -1,0 +1,30 @@
+Package: Clustering
+Type: Package
+Title: Methods to apply clustering over datasets
+Version: 0.1
+Date: 2017-05-28
+Author: Javier Moreno
+Maintainer: Javier Moreno <javmorenov@gmail.com>
+Description: A package with some methods and funcionality to apply clustering.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R6 (>= 2.1.0),
+    RLog (>= 0.1),
+    DataUtils (>= 0.1)
+Suggests:
+    testthat,
+    e1071,
+    fclust,
+    mclust,
+    stats
+LinkingTo: Rcpp, RcppArmadillo, bigmemory, BH, RcppParallel
+Imports:
+    Rcpp,
+    RcppArmadillo,
+    bigmemory,
+    BH,
+    RcppParallel
+SystemRequirements: GNU make
+RoxygenNote: 6.0.1

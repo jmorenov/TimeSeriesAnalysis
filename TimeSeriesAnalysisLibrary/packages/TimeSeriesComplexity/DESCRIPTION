@@ -1,0 +1,23 @@
+Package: TimeSeriesComplexity
+Type: Package
+Title: Apply complexity measures to TimeSeries
+Version: 0.1
+Date: 2017-05-27
+Author: Javier Moreno
+Maintainer: Javier Moreno <javmorenov@gmail.com>
+Description: Manage complexity measures with TimeSeries, and some needed functionality.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R6 (>= 2.1.0),
+    RLog (>= 0.1),
+    DataUtils (>= 0.1),
+    TimeSeries (>= 0.1)
+Suggests:
+    testthat,
+    combinat,
+    entropy,
+    pracma,
+    parallel
+RoxygenNote: 6.0.1

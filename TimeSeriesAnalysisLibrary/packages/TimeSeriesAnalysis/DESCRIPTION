@@ -1,0 +1,23 @@
+Package: TimeSeriesAnalysis
+Type: Package
+Title: Analyzes TimeSeries and applies different methods
+Version: 0.1
+Date: 2017-05-28
+Author: Javier Moreno
+Maintainer: Javier Moreno <javmorenov@gmail.com>
+Description: A package for analysis of TimeSeries.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R6 (>= 2.1.0),
+    TimeSeriesForecast (>= 0.1),
+    TimeSeriesComplexity (>= 0.1),
+    TimeSeriesTransformation (>= 0.1),
+    TimeSeriesDatabase (>= 0.1)
+imports:
+    RLog (>= 0.1),
+    TimeSeries (>= 0.1)
+Suggests:
+    testthat
+RoxygenNote: 6.0.1

@@ -1,0 +1,36 @@
+{
+  "dockers": {
+    "container_name": {
+      "image": "image_name",
+      "needBuild": false,
+      "imagePath": "",
+      "ports": [
+        {
+          "dockerPort": "3306",
+          "serverPort": "3307"
+        }
+      ],
+      "net": "",
+      "ip": "172.18.0.2",
+      "privileged": true,
+      "mountVolumes": [
+        {
+          "localVolume": "/localvolume",
+          "dockerVolume": "/dockervolume"
+        },
+        {
+          "localVolume": "/localvolume",
+          "dockerVolume": "/dockervolume"
+        }
+      ],
+      "link": "link_to_container",
+      "variables": {
+        "name": "value"
+      }
+    } 
+  },
+  "defaultNetwork": {
+    "name": "timeseries_analysis_net",
+    "subnet": "172.18.0.0/16"
+  }
+}

@@ -1,0 +1,16 @@
+\subsection{Informe de predicción}
+\subsubsection{KMeans}
+<<table_analysis_forecast_kmeans_block_x, echo=FALSE,results='asis'>>=
+table <- table_forecast(result$pred$centers_1)
+print(xtable(table), floating = FALSE)
+@
+\subsubsection{CMeans}
+<<table_analysis_forecast_cmeans_block_x, echo=FALSE,results='asis'>>=
+table <- table_forecast(result$pred$centers_2)
+print(xtable(table), floating = FALSE)
+@
+\subsubsection{HClust}
+<<table_analysis_forecast_hclust_block_x, echo=FALSE,results='asis'>>=
+table <- table_forecast(result$pred$centers_3)
+print(xtable(table), floating = FALSE)
+@

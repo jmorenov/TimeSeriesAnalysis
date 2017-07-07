@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\usepackage{url}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
+ {hyperref}
+\usepackage[utf8]{inputenc}
+\hypersetup{
+ pdfstartview={XYZ null null 1}}
+\begin{document}
+<<setup, include=FALSE, cache=FALSE>>=
+library(knitr)
+library(xtable)
+opts_chunk$set(highlight = TRUE, tidy = TRUE, keep.space = TRUE, keep.blank.space = FALSE, keep.comment = TRUE)
+opts_chunk$set(fig.path = 'Fig')
+opts_chunk$set(fig.path = 'figure/minimal-', fig.align = 'center', fig.show = 'hold')
+options(formatR.arrow = TRUE, width = 90)
+n1 <- 1
+n2 <- 48000
+norm.min <- -1
+norm.max <- 1
+percent_train <- 0.8
+# intervalA <- 1:20000
+# intervalB <- 20001:40000
+# intervalC <- 40001:60000
+# intervalA <- 1:1000
+# intervalB <- 1001:2000
+# intervalC <- 2001:3000
+intervalA <- c(1,16000)
+intervalB <- c(16001,32000)
+intervalC <- c(32001,48000)
+################
+@
+
+\title{Informe clustering con \Sexpr{as.character(n2)} series temporales}
+\author{Javier Moreno}
+\maketitle
+<<init, include=FALSE>>=
+RLog::rlog$setLevel("DEBUG")
+source("ClusteringReport.R")
+result <- analysis_blocks(percent_train, n1, n2, norm.min, norm.max, intervalA, intervalB, intervalC)
+@
+
+Las series temporales utilizadas son las \Sexpr{result$data$X$rows} primeras de la base de datos y para realizar clustering se calcularon \Sexpr{result$data$X$cols} medidas de complejidad sobre cada una de ellas. En cuanto a los métodos de clustering se han utilizado \Sexpr{length(result$clust$clust_X$analysis)}.\\
+
+Las medidas de complejidad utilizadas son:\\
+- Kolmogorov\\
+- LempelZiv\\
+- AproximationEntropy\\
+- PermutationEntropy\\
+- PracmaSampleEntropy\\
+- SampleEntropy\\
+- ShannonEntropy\\
+- ChaoShenEntropy\\
+- DirichletEntropy\\
+- MillerMadowEntropy\\
+- ShrinkEntropy\\\\
+
+Los métodos de clustering utilizados son:\\
+- KMeans\\
+- CMeans\\
+- HClust\\\\
+
+Los métodos de predicción utilizados son:\\
+- Arima\\
+- Ets\\
+- HoltWinters\\
+- StrucTS\\
+- Bats\\
+- Stl\\\\
+
+La división en bloques de series temporales es:\\
+- A: \Sexpr{as.character(intervalA[1])}-\Sexpr{as.character(intervalA[2])}\\
+- B: \Sexpr{as.character(intervalB[1])}-\Sexpr{as.character(intervalB[2])}\\
+- C: \Sexpr{as.character(intervalC[1])}-\Sexpr{as.character(intervalC[2])}\\
+
+\newpage
+\section{Clustering del conjunto completo}
+\subsection{Informe individual de cluster}
+<<table_analysis_block_x, echo=FALSE,results='asis'>>=
+table <- table_compare_individual_clustering(result$clust$clust_X)
+print(xtable(table), floating = FALSE)
+@
+<<block_x-plots, echo=FALSE,fig.width=4, fig.height=4, out.width='.4\\linewidth'>>=
+hist_kmeans <- result$clust$clust_X$analysis[[1]]$hist
+hist_cmeans <- result$clust$clust_X$analysis[[2]]$hist
+hist_hclust <- result$clust$clust_X$analysis[[3]]$hist
+hist(hist_kmeans, xlab = "KMeans")
+hist(hist_cmeans, xlab = "CMeans")
+hist(hist_hclust, xlab = "HClust")
+@
+\subsection{Comparación por parejas de clustering}
+<<table_analysis_pair_block_x, echo=FALSE,results='asis'>>=
+table <- table_compare_pair_clustering(result$clust$clust_X)
+print(xtable(table), floating = FALSE)
+@
+\newpage
+\section{Clustering Bloque A}
+\subsection{Informe individual de cluster}
+<<table_analysis_block_a, echo=FALSE,results='asis'>>=
+table <- table_compare_individual_clustering(result$clust$clust_A)
+print(xtable(table), floating = FALSE)
+@
+<<block_a-plots, echo=FALSE,fig.width=4, fig.height=4, out.width='.4\\linewidth'>>=
+hist_kmeans <- result$clust$clust_A$analysis[[1]]$hist
+hist_cmeans <- result$clust$clust_A$analysis[[2]]$hist
+hist_hclust <- result$clust$clust_A$analysis[[3]]$hist
+hist(hist_kmeans, xlab = "KMeans")
+hist(hist_cmeans, xlab = "CMeans")
+hist(hist_hclust, xlab = "HClust")
+@
+\subsection{Comparación por parejas de clustering}
+<<table_analysis_pair_block_a, echo=FALSE,results='asis'>>=
+table <- table_compare_pair_clustering(result$clust$clust_A)
+print(xtable(table), floating = FALSE)
+@
+
+\newpage
+\section{Clustering Bloque B}
+\subsection{Informe individual de cluster}
+<<table_analysis_block_b, echo=FALSE,results='asis'>>=
+table <- table_compare_individual_clustering(result$clust$clust_B)
+print(xtable(table), floating = FALSE)
+@
+<<block_b-plots, echo=FALSE,fig.width=4, fig.height=4, out.width='.4\\linewidth'>>=
+hist_kmeans <- result$clust$clust_B$analysis[[1]]$hist
+hist_cmeans <- result$clust$clust_B$analysis[[2]]$hist
+hist_hclust <- result$clust$clust_B$analysis[[3]]$hist
+hist(hist_kmeans, xlab = "KMeans")
+hist(hist_cmeans, xlab = "CMeans")
+hist(hist_hclust, xlab = "HClust")
+@
+\subsection{Comparación por parejas de clustering}
+<<table_analysis_pair_block_b, echo=FALSE,results='asis'>>=
+table <- table_compare_pair_clustering(result$clust$clust_B)
+print(xtable(table), floating = FALSE)
+@
+
+\newpage
+\section{Clustering Bloque C}
+\subsection{Informe individual de cluster}
+<<table_analysis_block_c, echo=FALSE,results='asis'>>=
+table <- table_compare_individual_clustering(result$clust$clust_C)
+print(xtable(table), floating = FALSE)
+@
+<<block_c-plots, echo=FALSE,fig.width=4, fig.height=4, out.width='.4\\linewidth'>>=
+hist_kmeans <- result$clust$clust_C$analysis[[1]]$hist
+hist_cmeans <- result$clust$clust_C$analysis[[2]]$hist
+hist_hclust <- result$clust$clust_C$analysis[[3]]$hist
+hist(hist_kmeans, xlab = "KMeans")
+hist(hist_cmeans, xlab = "CMeans")
+hist(hist_hclust, xlab = "HClust")
+@
+\subsection{Comparación por parejas de clustering}
+<<table_analysis_pair_block_c, echo=FALSE,results='asis'>>=
+table <- table_compare_pair_clustering(result$clust$clust_C)
+print(xtable(table), floating = FALSE)
+@
+
+\section{Análisis Comparación Conjunto total y Bloque A}
+<<table_analysis_total_block_a, echo=FALSE,results='asis'>>=
+table <- table_compare_total_block_clustering(result$compare_blocks$X_A, result$clust$clust_A$analysis[[1]]$ncenters)
+print(xtable(table), floating = FALSE)
+@
+
+\section{Análisis Comparación Conjunto total y Bloque B}
+<<table_analysis_total_block_b, echo=FALSE,results='asis'>>=
+table <- table_compare_total_block_clustering(result$compare_blocks$X_B, result$clust$clust_B$analysis[[1]]$ncenters)
+print(xtable(table), floating = FALSE)
+@
+
+\section{Análisis Comparación Conjunto total y Bloque C}
+<<table_analysis_total_block_c, echo=FALSE,results='asis'>>=
+table <- table_compare_total_block_clustering(result$compare_blocks$X_C, result$clust$clust_C$analysis[[1]]$ncenters)
+print(xtable(table), floating = FALSE)
+@
+
+
+\end{document}
