@@ -1,0 +1,179 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Article
+% LaTeX Template
+% Version 1.3 (9/9/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside, english]{article}
+
+\usepackage{lipsum} % Package to generate dummy text throughout this template
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref} % For hyperlinks in the PDF
+ \usepackage{url}
+\usepackage{babel}
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsubsection}[block]{\normalsize}{\thesubsubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Time Series Taxonomy $\bullet$ \ \gitAuthorDate \ $\bullet$ Release: \gitFirstTagDescribe} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\usepackage{gitinfo2}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{\vspace{-15mm}\fontsize{24pt}{10pt}\selectfont\textbf{Time Series Taxonomy}} % Article title
+
+\author{
+\large
+\textsc{Javier Moreno}\\[2mm] % Your name
+\normalsize University of Granada \\ % Your institution
+\normalsize \href{mailto:jmorenov@correo.ugr.es}{jmorenov@correo.ugr.es} % Your email address
+\vspace{-5mm}
+}
+\date{}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Insert title
+
+\thispagestyle{fancy} % All pages have headers and footers
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+
+\noindent Given a time serie, we want determinate wich classifier is the best for it. Can data complexity give us a hint?, the answer is yes and with complexity measures we can. We can do this by measures of complexity, a lot of time series and performing a clustering. This paper attempts to give an idea of how to do this, also i will try to introduce a list of complexity measures the biggest i can.
+
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\begin{multicols}{2} % Two-column layout throughout the main article text
+
+\section{Introduction}
+
+This paper explains a approach to create a taxonomy of time series, using complexity measures implemented \ref{complexity}, a Time Series Database and the classification of these.
+
+The paper is divided into three parts:
+\begin{compactitem}
+\item How to generate the taxonomy \ref{taxonomy}. 
+\item Time Series Classification/Clustering \ref{classification_clustering}
+\item Complexity Measures \ref{complexity}
+\end{compactitem}
+
+%------------------------------------------------
+
+\section{How to build the taxonomy} \label{taxonomy}
+
+The main elements for construction are measures of complexity \ref{complexity} and the Time Series Database, the more we have time series is better to give us a greater perspective when classifying. 
+
+With complexity measures implemented in our case R language, the first is applied to each time series all measures of complexity, and storing these results. These data can now make a better classification of time series, obtaining the taxonomy, for this a clustering is performed (not supervised or directed by expert) with all time series and these data. With this taxonomy we would be prepared to classify new series with great success rate.
+
+The idea is to reduce the number of prediction methods applied to each time series methods to limit certain specific classes.
+
+%------------------------------------------------
+
+\section{Time Series Classification/Clustering} \label{classification_clustering}
+
+\textbf{Time series clustering} is to partition time series data into groups based on similarity or distance, so that time series in the same cluster are similar. For time series clustering with R, the first step is to work out an appropriate distance/similarity metric, and then, at the second step, use existing clustering techniques, such as k-means, hierarchical clustering, density-based clustering or subspace clustering, to find clustering structures.\\ \textbf{Time series classification} is to build a classification model based on labelled time series and then use the model to predict the label of unlabelled time series. The way for time series classification with R is to extract and build features from time series data first, and then apply existing classification techniques, such as SVM, k-NN, neural networks, regression and decision trees, to the feature set. For more information see \cite{web:clustering_classification}
+
+%------------------------------------------------
+
+\section{Complexity Measures} \label{complexity}
+
+\subsection{Kolmogorov complexity} \label{kolmogorov}
+
+The Kolmogorov complexity K(x) of an object x is the length, in bits, of the smallest program (in bits) that when run on a Universal Turing Machine (U) outputs K(x) and then stops with the execution. This measure was independently developed by Andrey N. Kolmogorov in the late 1960s. On the basis of Kolmogorov’s idea, Lempel and Ziv developed an algorithm (LZA), which is often used in assessing the randomness of finite sequences as a measure of its disorder.\\
+The Kolmogorov complexity of a time series \(x_{i}\), i=1,2,3,4...,N can be summarized as follows:\\
+Step 1: Encode the sime series by constructing a sequence s consisting of the characters 0 and 1 written as s(i), i=1,2,3,4,...,N, according to the rule:
+$$s(i)= \left\{ 
+\begin{array}{lcc}
+0 & x_{i} < x_{*} \\
+1 & x_{i} \geq x_{*} 
+\end{array}
+\right.
+$$
+Where \(x_{*}\) is a threshold, the mean value of the time series has often been used as the threshold.\\
+Step 2: Calculate the complexity counter C(N), which is defined as the minimum number of distinct patterns contained in a given character sequence.\\
+More information in \cite{article:KolmogorovComplexity} \cite{wiki:kolmogorov} \cite{article:EasilyAdaptableComplexityMeasure}.
+
+\subsubsection{Lempel-Ziv Complexity}
+The Lempel-Ziv Complexity is based on Kolmogorov Complexity. First is calculated the Kolmogorov Complexity K(x) of an object x and then calculate the normalized complexity measure \(C_{k}(N)\), which is defined as
+\begin{equation}
+\label{eq:kolmogorovnormalized}
+C_{k}(N) = \frac{c(N)}{b(N)} = c(N)\frac{log_2 N}{N}
+\end{equation}
+More information in \cite{article:EasilyAdaptableComplexityMeasure}.
+%\subsection{Lattice Complexity}
+
+\subsection{Entropy}
+\subsubsection{Aproximation Entropy}
+Aproximation Entropy (ApEn) is a complexity measure used to quantify the amount of regularity and the unpredictability of fluctuations over time-series data.\\
+The presence of repetitive patterns of fluctuation in a time series renders it more predictable than a time series in which such patterns are absent. ApEn reflects the likelihood that similar patterns of observations will not be followed by additional similar observations. A time series containing many repetitive patterns has a relatively small ApEn; a less predictable process has a higher ApEn.
+
+\subsubsection{Sample Entropy}
+Sample entropy (SampEn) is a modification of approximate entropy, used extensively for assessing the complexity of a physiological time-series signal, thereby diagnosing diseased state. Like approximate entropy (ApEn), Sample entropy (SampEn) is a measure of complexity. But it does not include self-similar patterns as ApEn does.
+
+\subsubsection{Permutation Entropy}
+Input: Given a stationary time series {xt}\\
+We have to determine length of sliding window n and slide the time series according to it, calculate permutation entropy \(h_{n}\) of order n, repeat for some n and finally calculate \(h_{n}\), where:
+\[H(n) = -\sum p(\pi)log p(\pi)\]
+\[h_{n} = \frac{H(n)}{(n-1)}\]
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+\bibliographystyle{plain}
+\bibliography{References}
+
+%----------------------------------------------------------------------------------------
+
+\end{multicols}
+
+\end{document}
