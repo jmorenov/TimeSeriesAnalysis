@@ -1,5 +1,5 @@
 # TimeSeriesAnalysis
-Final project of my bachelor of Computer Engineer
+Final project of my bachelor on Computer Engineer
 
 Source code for Taxonomy, Analysis and Prediction of Times Series.
 
